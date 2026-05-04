@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head>  <title>Styled Todo</title>  <style>    body { font-family: Arial; background: #eee; text-align: center; }    .box { background: white; padding: 20px; width: 300px; margin: auto; }    li { margin: 10px; cursor: pointer; }    .done { text-decoration: line-through; color: gray; }  </style></head><body><div class="box">  <h2>Todo App</h2>  <input id="task">  <button onclick="add()">Add</button>  <ul id="list"></ul></div><script>function add() {  let text = task.value;  if (!text) return;  let li = document.createElement("li");  li.innerHTML = `${text} <button onclick="del(this)">X</button>`;  li.onclick = () => li.classList.toggle("done");  list.appendChild(li);  task.value = "";}function del(btn) {  btn.parentElement.remove();}</script></body></html>
+
+🔹 3. Advanced Todo (with Local Storage 🚀)
+✅ Features:
+
+
+Saves tasks after refresh
+
+
+Add / Delete / Complete
+
+
+<!DOCTYPE html><html><head>  <title>Advanced Todo</title>  <style>    body { font-family: Arial; background: #222; color: white; text-align: center; }    input { padding: 10px; }    button { padding: 10px; }    li { margin: 10px; }    .done { text-decoration: line-through; color: gray; }  </style></head><body><h2>Advanced Todo</h2><input id="task"><button onclick="addTask()">Add</button><ul id="list"></ul><script>let todos = JSON.parse(localStorage.getItem("todos")) || [];function render() {  list.innerHTML = "";  todos.forEach((t, i) => {    let li = document.createElement("li");    li.innerHTML = `      <span onclick="toggle(${i})" class="${t.done ? 'done' : ''}">        ${t.text}      </span>      <button onclick="removeTask(${i})">X</button>    `;    list.appendChild(li);  });}function addTask() {  if (!task.value) return;  todos.push({ text: task.value, done: false });  task.value = "";  save();}function toggle(i) {  todos[i].done = !todos[i].done;  save();}function removeTask(i) {  todos.splice(i, 1);  save();}function save() {  localStorage.setItem("todos", JSON.stringify(todos));  render();}render();</script></body></html>
+
+💡 If you want next level:
+I can build you:
+
+
+🔥 Drag & drop todo app
+
+
+📱 Mobile UI version
+
+
+⚛️ React / Vue version
+
+
+🌐 Full-stack (with login + database)
+
+
+Just tell me 👍
