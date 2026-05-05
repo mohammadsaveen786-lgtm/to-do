@@ -28,7 +28,7 @@ function render() {
     if (currentFilter === "completed") return todo.completed;
     return true;
   });
-
+//sarfaraz maoulana
   filtered.forEach((todo, index) => {
     const li = document.createElement("li");
 
